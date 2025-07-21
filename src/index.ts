@@ -28,7 +28,7 @@ app.use(errorHandler);
 // Database connection and server start
 connectDatabase()
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(Number(PORT), '0.0.0.0', () => {
       console.log(`Server running on port ${PORT}`);
     });
   })
