@@ -28,7 +28,7 @@ export class ExpenseController {
 
   async getExpenses(req: Request, res: Response) {
     try {
-      const { page = 1, limit = 10, status, category } = req.query;
+      const { page = 1, limit = 10, status, category, date } = req.query;
       const expenses = await this.expenseService.getExpenses(
         req.user.id,
         req.user.role,
@@ -36,7 +36,8 @@ export class ExpenseController {
           page: Number(page),
           limit: Number(limit),
           status: status as string,
-          category: category as string
+          category: category as string,
+          date: date as string
         }
       );
       res.json(expenses);
