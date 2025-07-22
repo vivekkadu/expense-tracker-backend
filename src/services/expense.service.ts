@@ -16,7 +16,7 @@ export class ExpenseService {
   }
 
   async getExpenses(userId: number, userRole: UserRole, filters: any) {
-    const { page, limit, status, category } = filters;
+    const { page, limit, status, category, startDate, endDate } = filters;
     const offset = (page - 1) * limit;
 
     let whereCondition: any = {};
@@ -31,6 +31,17 @@ export class ExpenseService {
     }
     if (category) {
       whereCondition.category = category;
+    }
+    
+    // Date filtering
+    if (startDate || endDate) {
+      whereCondition.expenseDate = {};
+      if (startDate) {
+        whereCondition.expenseDate[Op.gte] = startDate;
+      }
+      if (endDate) {
+        whereCondition.expenseDate[Op.lte] = endDate;
+      }
     }
 
     const { count, rows } = await Expense.findAndCountAll({
