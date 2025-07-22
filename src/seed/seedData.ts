@@ -23,13 +23,6 @@ export const seedDatabase = async () => {
         role: UserRole.ADMIN
       },
       {
-        email: 'manager@company.com',
-        password: hashedPassword,
-        firstName: 'Manager',
-        lastName: 'User',
-        role: UserRole.MANAGER
-      },
-      {
         email: 'employee1@company.com',
         password: hashedPassword,
         firstName: 'John',
@@ -45,7 +38,7 @@ export const seedDatabase = async () => {
       }
     ]);
 
-    const [admin, manager, employee1, employee2] = users;
+    const [admin, employee1, employee2] = users;
 
     // Create sample expenses
     await Expense.bulkCreate([
@@ -53,11 +46,11 @@ export const seedDatabase = async () => {
         title: 'Business Lunch',
         description: 'Client meeting lunch',
         amount: 45.50,
-        category: ExpenseCategory.FOOD,
+        category: ExpenseCategory.FOOD_DINING,
         status: ExpenseStatus.APPROVED,
         expenseDate: new Date('2024-01-15'),
         userId: employee1.id,
-        approvedBy: manager.id
+        approvedBy: admin.id
       },
       {
         title: 'Flight to Conference',
@@ -76,7 +69,55 @@ export const seedDatabase = async () => {
         status: ExpenseStatus.APPROVED,
         expenseDate: new Date('2024-01-18'),
         userId: employee2.id,
-        approvedBy: manager.id
+        approvedBy: admin.id
+      },
+      {
+        title: 'Taxi to Airport',
+        description: 'Transportation to airport for business trip',
+        amount: 35.00,
+        category: ExpenseCategory.TRANSPORTATION,
+        status: ExpenseStatus.APPROVED,
+        expenseDate: new Date('2024-01-22'),
+        userId: employee1.id,
+        approvedBy: admin.id
+      },
+      {
+        title: 'Team Building Event',
+        description: 'Company team building dinner',
+        amount: 120.00,
+        category: ExpenseCategory.ENTERTAINMENT,
+        status: ExpenseStatus.PENDING,
+        expenseDate: new Date('2024-01-25'),
+        userId: employee2.id
+      },
+      {
+        title: 'Medical Checkup',
+        description: 'Annual health checkup',
+        amount: 200.00,
+        category: ExpenseCategory.HEALTHCARE,
+        status: ExpenseStatus.APPROVED,
+        expenseDate: new Date('2024-01-28'),
+        userId: employee1.id,
+        approvedBy: admin.id
+      },
+      {
+        title: 'Online Course',
+        description: 'Professional development course',
+        amount: 99.00,
+        category: ExpenseCategory.EDUCATION,
+        status: ExpenseStatus.PENDING,
+        expenseDate: new Date('2024-01-30'),
+        userId: employee2.id
+      },
+      {
+        title: 'Miscellaneous Expense',
+        description: 'Various small office items',
+        amount: 15.50,
+        category: ExpenseCategory.OTHER,
+        status: ExpenseStatus.APPROVED,
+        expenseDate: new Date('2024-02-01'),
+        userId: employee1.id,
+        approvedBy: admin.id
       }
     ]);
 

@@ -3,7 +3,6 @@ import { sequelize } from '../config/database';
 
 export enum UserRole {
   EMPLOYEE = 'employee',
-  MANAGER = 'manager',
   ADMIN = 'admin'
 }
 

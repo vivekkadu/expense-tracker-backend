@@ -58,7 +58,7 @@ export class ExpenseService {
     userId: number,
     userRole: UserRole
   ) {
-    // Only managers and admins can approve/reject expenses
+    // Only admins can approve/reject expenses
     if (userRole === UserRole.EMPLOYEE) {
       throw new Error('Insufficient permissions to update expense status');
     }

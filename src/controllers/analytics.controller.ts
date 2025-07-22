@@ -25,4 +25,20 @@ export class AnalyticsController {
       }
     }
   }
+
+  async getDashboardStats(req: Request, res: Response) {
+    try {
+      const stats = await this.analyticsService.getDashboardStats(
+        req.user.id,
+        req.user.role
+      );
+      res.json(stats);
+    } catch (error) {
+      if (error instanceof Error) {
+        res.status(400).json({ message: error.message });
+      } else {
+        res.status(400).json({ message: 'An unknown error occurred' });
+      }
+    }
+  }
 }

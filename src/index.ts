@@ -6,7 +6,7 @@ import analyticsRoutes from './routes/analytics.routes';
 import { errorHandler } from './middleware/errorHandler';
 import { corsMiddleware } from './middleware/cors';
 
-// // Import models to ensure they are registered
+
 import './models/User';
 import './models/Expense';
 

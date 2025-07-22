@@ -9,12 +9,26 @@ export enum ExpenseStatus {
 }
 
 export enum ExpenseCategory {
-  TRAVEL = 'travel',
-  FOOD = 'food',
-  OFFICE_SUPPLIES = 'office_supplies',
-  ENTERTAINMENT = 'entertainment',
-  OTHER = 'other'
+  FOOD_DINING = 'Food & Dining',
+  TRANSPORTATION = 'Transportation',
+  OFFICE_SUPPLIES = 'Office Supplies',
+  TRAVEL = 'Travel',
+  ENTERTAINMENT = 'Entertainment',
+  HEALTHCARE = 'Healthcare',
+  EDUCATION = 'Education',
+  OTHER = 'Other'
 }
+
+export const EXPENSE_CATEGORIES = [
+  'Food & Dining',
+  'Transportation', 
+  'Office Supplies',
+  'Travel',
+  'Entertainment',
+  'Healthcare',
+  'Education',
+  'Other'
+];
 
 interface ExpenseAttributes {
   id: number;

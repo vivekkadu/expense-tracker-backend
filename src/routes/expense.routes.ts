@@ -17,7 +17,7 @@ router.get('/', expenseController.getExpenses.bind(expenseController));
 
 // Endpoint 4: Approve/Reject Expenses
 router.put('/status', 
-  requireRole([UserRole.MANAGER, UserRole.ADMIN]), 
+  requireRole([UserRole.ADMIN]), 
   expenseController.approveRejectExpense.bind(expenseController)
 );
 
