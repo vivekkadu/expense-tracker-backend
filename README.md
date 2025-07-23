@@ -38,14 +38,12 @@
 #### `/src/utils/`
 - **`responseHelper.ts`**: Standardized API response formatting utilities
 
-#### `/src/seed/`
-- **`seedData.ts`**: Database seeding script for initial data setup
 
 ## 🛠️ Installation & Setup
 
 ### Prerequisites
-- Node.js (v14 or higher)
-- MySQL (v8.0 or higher)
+- Node.js 
+- MySQL 
 - npm or yarn
 
 ### 1. Clone the repository

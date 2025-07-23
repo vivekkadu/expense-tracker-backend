@@ -26,6 +26,8 @@ app.use('/api/analytics', analyticsRoutes);
 app.use(errorHandler);
 
 // Database connection and server start
+// 0.0.0.0 is a special IP address that means
+// bind to all available network interfaces " on the host machine.
 connectDatabase()
   .then(() => {
     app.listen(Number(PORT), '0.0.0.0', () => {
