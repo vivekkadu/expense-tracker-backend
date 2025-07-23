@@ -67,8 +67,8 @@ export class AuthService {
   private generateToken(user: User): string {
     return jwt.sign(
       { id: user.id, email: user.email, role: user.role },
-      process.env.JWT_SECRET || 'your-secret-key',
+      process.env.JWT_SECRET || "",
       { expiresIn: '24h' }
     );
-  }
+  } 
 }

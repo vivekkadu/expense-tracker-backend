@@ -25,7 +25,7 @@ export const authenticateToken = async (req: Request, res: Response, next: NextF
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key') as JwtPayload;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || '') as JwtPayload;
     
     const user = await User.findByPk(decoded.id);
     
